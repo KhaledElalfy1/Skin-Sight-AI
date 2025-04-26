@@ -1,0 +1,40 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:skin_sight_ai/core/routers/routing.dart';
+import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
+
+
+class AppRouter {
+  static Route? generateRoute(RouteSettings routeSettings) {
+    final args = routeSettings.arguments;
+    switch (routeSettings.name) {
+      case Routing.splash:
+        return _buildRoute(const Scaffold());
+      case Routing.onboarding:
+        return _buildRoute(const Scaffold());
+      case Routing.signIn:
+        return _buildRoute(const Scaffold());
+      case Routing.otp:
+        return _buildRoute(const Scaffold());
+      case Routing.home:
+        return _buildRoute(const HomeView());
+      case Routing.profile:
+        return _buildRoute(const Scaffold());
+      case Routing.clinicDetail:
+        return _buildRoute(const Scaffold());
+
+      default:
+        return null;
+    }
+  }
+
+  static Route<dynamic> _buildRoute(Widget page) {
+    return Platform.isIOS
+        ? CupertinoPageRoute(
+            builder: (_) => page,
+          )
+        : MaterialPageRoute(builder: (_) => page);
+  }
+}
