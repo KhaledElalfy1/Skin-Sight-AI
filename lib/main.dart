@@ -7,6 +7,7 @@ import 'package:skin_sight_ai/core/services/get_it.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setup();
   await getIt<CacheHelper>().init();
   runApp(const SkinSightAI());
 }
