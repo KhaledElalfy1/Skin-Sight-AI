@@ -23,6 +23,10 @@ class SkinSightAI extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: GoogleFonts.nunitoSans().fontFamily,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.white,
+        ),
       ),
       onGenerateRoute: AppRouter.generateRoute,
     );
