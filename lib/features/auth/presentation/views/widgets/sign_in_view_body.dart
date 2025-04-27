@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/routers/routing.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
+import 'package:skin_sight_ai/core/widgets/custom_elevated_button.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/widgets/custom_app_bar.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 
@@ -46,24 +47,7 @@ class SignInViewbody extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryColor,
-                        minimumSize: const Size(203, 79),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    CustomElevatedButton(onPressed: () {}, label: 'login'),
                     const SizedBox(
                       height: 10,
                     ),
@@ -103,3 +87,4 @@ class SignInViewbody extends StatelessWidget {
     );
   }
 }
+
