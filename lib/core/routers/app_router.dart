@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/routers/routing.dart';
+import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
+import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
-
 
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
@@ -15,7 +16,9 @@ class AppRouter {
       case Routing.onboarding:
         return _buildRoute(const Scaffold());
       case Routing.signIn:
-        return _buildRoute(const Scaffold());
+        return _buildRoute(const SignInView());
+      case Routing.signUp:
+        return _buildRoute(const SignUpView());
       case Routing.otp:
         return _buildRoute(const Scaffold());
       case Routing.home:
