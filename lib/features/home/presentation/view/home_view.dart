@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/widgets/choose_image_bloc_builder.dart';
@@ -38,8 +37,6 @@ class HomeView extends StatelessWidget {
                 height: 30,
               ),
               ChooseImageBlocBuilder(),
-              
-             
             ],
           ),
         ),
