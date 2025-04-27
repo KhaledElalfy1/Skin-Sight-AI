@@ -66,7 +66,7 @@ class _SplashViewState extends State<SplashView> {
       if (!isFirstTime) {
         context.pushReplacementNamed(Routing.home);
       } else {
-        context.pushReplacementNamed(Routing.signIn);
+        context.pushReplacementNamed(Routing.onboarding);
       }
     }
   }
