@@ -6,13 +6,14 @@ import 'package:skin_sight_ai/core/routers/routing.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
+import 'package:skin_sight_ai/features/splash/presentation/view/splash_view.dart';
 
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
     final args = routeSettings.arguments;
     switch (routeSettings.name) {
       case Routing.splash:
-        return _buildRoute(const Scaffold());
+        return _buildRoute(const SplashView());
       case Routing.onboarding:
         return _buildRoute(const Scaffold());
       case Routing.signIn:
