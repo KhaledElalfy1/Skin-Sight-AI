@@ -8,7 +8,11 @@ import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/h
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
+
+import 'package:skin_sight_ai/features/onBoarding/presentation/view/onBoarding_view.dart';
+
 import 'package:skin_sight_ai/features/splash/presentation/view/splash_view.dart';
+
 
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
@@ -17,7 +21,7 @@ class AppRouter {
       case Routing.splash:
         return _buildRoute(const SplashView());
       case Routing.onboarding:
-        return _buildRoute(const Scaffold());
+        return _buildRoute(const OnboardingView());
       case Routing.signIn:
         return _buildRoute(const SignInView());
       case Routing.signUp:
