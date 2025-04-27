@@ -1,7 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
-import 'package:skin_sight_ai/core/utils/app_images.dart';
-import 'package:skin_sight_ai/features/home/presentation/view/widgets/image_picker_container.dart';
+import 'package:skin_sight_ai/features/home/presentation/view/widgets/choose_image_bloc_builder.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,45 +21,29 @@ class HomeView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          children: [
-            const Text(
-              'Chose the suitable way to upload your photo.',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
+                'Chose the suitable way to upload your photo.',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: ImagePickerContainer(
-                    onTap: () {},
-                    imagePath: AppImages.camera,
-                  ),
-                ),
-               const SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: ImagePickerContainer(
-                    onTap: () {},
-                    imagePath: AppImages.gallery,
-                  ),
-                ),
-              ],
-            )
-          ],
+              SizedBox(
+                height: 30,
+              ),
+              ChooseImageBlocBuilder(),
+              
+             
+            ],
+          ),
         ),
       ),
     );
   }
 }
-

@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_sight_ai/core/routers/routing.dart';
+import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/home_cubit.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
-
 
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
@@ -19,7 +20,10 @@ class AppRouter {
       case Routing.otp:
         return _buildRoute(const Scaffold());
       case Routing.home:
-        return _buildRoute(const HomeView());
+        return _buildRoute(BlocProvider(
+          create: (context) => HomeCubit(),
+          child: const HomeView(),
+        ));
       case Routing.profile:
         return _buildRoute(const Scaffold());
       case Routing.clinicDetail:
