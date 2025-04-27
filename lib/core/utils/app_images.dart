@@ -1,8 +1,11 @@
-
 class AppImages {
   AppImages._();
 
+
   static String splashImg = "assets/images/splash.png";
 
-}
 
+  static const String camera = 'assets/images/camera.png';
+  static const String gallery = 'assets/images/gallery.png';
+
+}
