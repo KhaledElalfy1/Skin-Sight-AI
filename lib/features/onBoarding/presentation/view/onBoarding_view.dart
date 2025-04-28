@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:skin_sight_ai/core/database/cache/cache_keys.dart';
+import 'package:skin_sight_ai/core/database/cache/cashe_helper.dart';
 import 'package:skin_sight_ai/core/helpers/extentions.dart';
 import 'package:skin_sight_ai/core/routers/routing.dart';
+import 'package:skin_sight_ai/core/services/get_it.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 
@@ -47,7 +50,13 @@ class OnboardingView extends StatelessWidget {
                   color: const Color(0xffDBE2EE),
                   borderRadius: BorderRadius.circular(35)),
               child: IconButton(
-                onPressed: () => context.pushNamed(Routing.signIn),
+                onPressed: () async {
+                  await getIt<CacheHelper>()
+                      .saveData(key: CacheKeys.isFirstTime, value: false);
+                  if (context.mounted) {
+                    context.pushNamed(Routing.signIn);
+                  }
+                },
                 icon: Container(
                   width: 67,
                   height: 67,
