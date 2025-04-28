@@ -60,11 +60,15 @@ class _SplashViewState extends State<SplashView> {
   }
 
   getInitRoute() async {
+    final token = getIt<CacheHelper>().getString(key: CacheKeys.token);
     bool isFirstTime =
         getIt<CacheHelper>().getBool(key: CacheKeys.isFirstTime) ?? true;
     if (mounted) {
-      if (!isFirstTime) {
+      if (token != null) {
         context.pushReplacementNamed(Routing.home);
+      }
+     else if (!isFirstTime) {
+        context.pushReplacementNamed(Routing.signIn);
       } else {
         context.pushReplacementNamed(Routing.onboarding);
       }

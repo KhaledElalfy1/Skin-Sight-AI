@@ -9,12 +9,14 @@ class CustomTextFormField extends StatefulWidget {
     required this.controller,
     required this.keyboardType,
     required this.isSuffixIcon,
+    this.isSecure = false,
     this.validator,
   });
   final String label, hintText;
   final TextEditingController controller;
   final TextInputType keyboardType;
   final bool isSuffixIcon;
+  final bool isSecure;
   final String? Function(String?)? validator;
 
   @override
@@ -22,7 +24,12 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  bool isSecure = true;
+  late bool isSecure;
+  @override
+  void initState() {
+    isSecure = widget.isSecure;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

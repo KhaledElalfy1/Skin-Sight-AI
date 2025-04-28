@@ -20,7 +20,7 @@ class SkinSightAI extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      initialRoute: Routing.profile,
+      initialRoute: Routing.splash,
 
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

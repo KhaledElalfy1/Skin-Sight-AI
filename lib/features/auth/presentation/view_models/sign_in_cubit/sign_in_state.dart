@@ -1,6 +1,6 @@
-part of 'sign_in_cubit.dart';
 
-@immutable
+import 'package:skin_sight_ai/core/database/api/api_error_model.dart';
+
 sealed class SignInState {}
 
 final class SignUpInitial extends SignInState {}
