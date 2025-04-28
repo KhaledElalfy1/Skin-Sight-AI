@@ -15,7 +15,9 @@ import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
 
 import 'package:skin_sight_ai/features/onBoarding/presentation/view/onBoarding_view.dart';
+import 'package:skin_sight_ai/features/profile/data/repo/user_profile_repo.dart';
 import 'package:skin_sight_ai/features/profile/presentation/view/profile_view.dart';
+import 'package:skin_sight_ai/features/profile/presentation/view_model/user_profile_cubit/user_profile_cubit.dart';
 
 import 'package:skin_sight_ai/features/splash/presentation/view/splash_view.dart';
 
@@ -45,7 +47,10 @@ class AppRouter {
           child: const HomeView(),
         ));
       case Routing.profile:
-        return _buildRoute(const ProfileView());
+        return _buildRoute(BlocProvider(
+          create: (context) => UserProfileCubit(getIt<UserProfileRepo>())..userProfile(),
+          child: const ProfileView(),
+        ));
       case Routing.clinicDetail:
         return _buildRoute(const Scaffold());
 

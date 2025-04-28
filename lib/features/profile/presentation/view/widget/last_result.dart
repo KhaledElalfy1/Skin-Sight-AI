@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:skin_sight_ai/features/profile/data/model/history_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class LastResult extends StatelessWidget {
-  const LastResult({super.key});
+  const LastResult({super.key, required this.userHistory});
+  final List<HistoryModel> userHistory;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 20,
+      itemCount: userHistory.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
@@ -34,7 +37,7 @@ class LastResult extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Disease:',
+                        'Diagnosis:',
                         style: TextStyle(
                           fontSize: 19,
                           fontWeight: FontWeight.bold,
@@ -43,7 +46,7 @@ class LastResult extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        'Blackheads or whiteheads',
+                        userHistory[index].diagnosis,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey.shade700,
@@ -54,7 +57,8 @@ class LastResult extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '24 / 4 / 2025',
+                  DateFormat('dd MMMM yyyy, hh:mm a')
+                      .format(userHistory[index].date),
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,

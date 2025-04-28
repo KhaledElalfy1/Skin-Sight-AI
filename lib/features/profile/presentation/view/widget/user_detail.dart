@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
-
 import '../../../../../core/utils/app_images.dart';
 
 class UserDetail extends StatelessWidget {
-  const UserDetail({super.key});
+  const UserDetail(
+      {super.key, required this.userEmail, required this.userName});
+  final String userEmail;
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,8 @@ class UserDetail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 150,
-              height: 150,
+              width: 100,
+              height: 100,
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
@@ -31,16 +33,16 @@ class UserDetail extends StatelessWidget {
                       fit: BoxFit.cover)),
             ),
             const SizedBox(height: 10),
-            const Text(
-              'test@gmail.com',
-              style: TextStyle(
+            Text(
+              userEmail,
+              style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey),
             ),
-            const Text(
-              'Dina Ahmed',
-              style: TextStyle(
+            Text(
+              userName,
+              style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: Color(0xffDBE2EE)),
