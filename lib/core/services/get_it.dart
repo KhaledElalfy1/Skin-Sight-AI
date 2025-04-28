@@ -1,8 +1,11 @@
-
 import 'package:get_it/get_it.dart';
 import 'package:skin_sight_ai/core/database/api/api_consumer.dart';
 import 'package:skin_sight_ai/core/database/api/dio_factory.dart';
 import 'package:skin_sight_ai/core/database/cache/cashe_helper.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo_impl.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo_impl.dart';
 
 import '../database/api/dio_consumer.dart';
 
@@ -21,6 +24,10 @@ void setup() {
   );
 
   // Auth repos
-
-
+  getIt.registerLazySingleton<SignUpRepo>(
+    () => SignUpRepoImpl(apiConsumer: getIt<ApiConsumer>()),
+  );
+  getIt.registerLazySingleton<SignInRepo>(
+    () => SignInRepoImpl(apiConsumer: getIt<ApiConsumer>()),
+  );
 }

@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
+import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_up_cubit/sign_up_cubit.dart';
 
-class GenderSelectionMenu extends StatefulWidget {
-  const GenderSelectionMenu({
-    super.key,
-  });
+class GenderSelectionMenu extends StatelessWidget {
+  const GenderSelectionMenu({super.key});
 
-  @override
-  State<GenderSelectionMenu> createState() => _GenderSelectionMenuState();
-}
-
-class _GenderSelectionMenuState extends State<GenderSelectionMenu> {
-  String? selectedGender;
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<SignUpCubit>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,6 +20,7 @@ class _GenderSelectionMenuState extends State<GenderSelectionMenu> {
               color: AppColors.primaryColor,
             )),
         DropdownButtonFormField<String>(
+          value: cubit.selectedGender,
           validator: (value) {
             if (value == null) {
               return 'Please select your gender';
@@ -41,9 +38,7 @@ class _GenderSelectionMenuState extends State<GenderSelectionMenu> {
             ),
           ],
           onChanged: (value) {
-            setState(() {
-              selectedGender = value;
-            });
+            cubit.changeGender(value);
           },
           decoration: InputDecoration(
             fillColor: const Color(0xffC3CFE2).withOpacity(0.4),

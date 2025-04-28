@@ -4,6 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skin_sight_ai/core/routers/routing.dart';
+import 'package:skin_sight_ai/core/services/get_it.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo.dart';
+import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo.dart';
+import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_in_cubit/sign_in_cubit.dart';
+import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/home_cubit.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
@@ -14,7 +19,6 @@ import 'package:skin_sight_ai/features/profile/presentation/view/profile_view.da
 
 import 'package:skin_sight_ai/features/splash/presentation/view/splash_view.dart';
 
-
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
     final args = routeSettings.arguments;
@@ -24,9 +28,15 @@ class AppRouter {
       case Routing.onboarding:
         return _buildRoute(const OnboardingView());
       case Routing.signIn:
-        return _buildRoute(const SignInView());
+        return _buildRoute(BlocProvider(
+          create: (context) => SignInCubit(getIt<SignInRepo>()),
+          child: const SignInView(),
+        ));
       case Routing.signUp:
-        return _buildRoute(const SignUpView());
+        return _buildRoute(BlocProvider(
+          create: (context) => SignUpCubit(getIt<SignUpRepo>()),
+          child: const SignUpView(),
+        ));
       case Routing.otp:
         return _buildRoute(const Scaffold());
       case Routing.home:
