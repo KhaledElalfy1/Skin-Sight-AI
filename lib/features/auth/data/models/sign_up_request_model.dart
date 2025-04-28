@@ -17,7 +17,7 @@ class SignUpRequestModel {
         'name': name,
         'email': email,
         'password': password,
-        'confirm_password': confirmPassword,
+        'confirmPassword': confirmPassword,
         'gender': gender,
       };
 }
