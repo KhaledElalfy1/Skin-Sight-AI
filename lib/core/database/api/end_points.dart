@@ -1,23 +1,6 @@
 class EndPoints {
-  // base url
-  static String baseUrl = "https://afiyatuk.runasp.net/";
-
-  // endpoints
-
-  //auth
-  static String auth = "api/Auth/";
-  static String signIn = "${auth}login";
-  static String otp = "${auth}test-otp";
-  static String getBranches = '/api/secure/Branch';
-  static String getBranchProducts = 'api/secure/Product/';
-
-  static String getAllSystemMedicines = 'api/secure/Product';
-
-  static String deleteMedicine = "api/secure/Product/";
-  static String addMedicine = "api/secure/Product";
-  static String updateMedicine = "api/secure/Product";
-  static String getMedicine = "api/secure/Product";
-  static String getOutOfStock = "api/secure/Product/out-of-stock";
+  static String register = '/api/auth/register';
+  static String login = '/api/auth/login';
 }
 
 class ApiKeys {
@@ -39,4 +22,6 @@ class ApiKeys {
   static String createdAt = "createdAt";
   static String user = "user";
   static String lang = "lang";
+  static String isAuthenticated = "isAuthenticated";
+  static String expiresOn = "expiresOn";
 }
