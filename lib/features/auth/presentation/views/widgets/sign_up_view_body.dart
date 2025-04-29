@@ -51,6 +51,7 @@ class SignUpViewBody extends StatelessWidget {
                 hintText: 'Enter password',
                 controller: signupcubit.passwordController,
                 keyboardType: TextInputType.visiblePassword,
+                isSecure: true,
                 isSuffixIcon: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -68,6 +69,7 @@ class SignUpViewBody extends StatelessWidget {
                 controller: signupcubit.confirmPasswordController,
                 keyboardType: TextInputType.visiblePassword,
                 isSuffixIcon: true,
+                isSecure: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please confirm your password';
