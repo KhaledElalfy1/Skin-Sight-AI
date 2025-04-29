@@ -46,14 +46,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         const SizedBox(height: 10),
         TextFormField(
-          obscureText: isSecure,
+          obscureText: widget.isSuffixIcon ? isSecure : false,
           controller: widget.controller,
-          validator: (value) {
-            if (value!.isEmpty) {
-              return 'Please enter your ${widget.label}';
-            }
-            return null;
-          },
+          validator: widget.validator ??
+              (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter your ${widget.label}';
+                }
+                return null;
+              },
           onTapOutside: (v) {
             FocusScope.of(context).unfocus();
           },
@@ -100,6 +101,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
                 color: Colors.red,
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: AppColors.primaryColor,
               ),
             ),
           ),

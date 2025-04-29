@@ -7,16 +7,16 @@ final class SignUpInitial extends SignUpState {}
 
 final class SignUpGenderChanged extends SignUpState {}
 
-final class SignUpLoading extends SignUpState {}
+final class SignUpStateLoading extends SignUpState {}
 
-final class SignUpFailure extends SignUpState {
+final class SignUpStateFailure extends SignUpState {
   final ApiErrorModel apiErrorModel;
 
-  SignUpFailure({required this.apiErrorModel});
+  SignUpStateFailure({required this.apiErrorModel});
 }
 
-final class SignUpSuccess extends SignUpState {
+final class SignUpStateSuccess extends SignUpState {
   final String message;
 
-  SignUpSuccess({required this.message});
+  SignUpStateSuccess({required this.message});
 }

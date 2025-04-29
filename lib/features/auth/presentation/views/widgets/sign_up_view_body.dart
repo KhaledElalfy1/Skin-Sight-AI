@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:skin_sight_ai/core/utils/app_colors.dart';
-import 'package:skin_sight_ai/core/widgets/custom_elevated_button.dart';
 import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_up_cubit/sign_up_cubit.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/widgets/custom_app_bar.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/widgets/gender_selection_menu.dart';
+import 'package:skin_sight_ai/features/auth/presentation/views/widgets/sign_up_block_consumer.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
@@ -52,6 +52,14 @@ class SignUpViewBody extends StatelessWidget {
                 controller: signupcubit.passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 isSuffixIcon: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  } else if (value != signupcubit.passwordController.text) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 20),
               CustomTextFormField(
@@ -84,10 +92,7 @@ class SignUpViewBody extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      CustomElevatedButton(
-                        onPressed: () {},
-                        label: 'Register',
-                      ),
+                      const SignUpBlockConsumer(),
                       const SizedBox(
                         height: 10,
                       ),
