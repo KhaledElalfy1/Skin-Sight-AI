@@ -18,7 +18,7 @@ class SignInViewbody extends StatelessWidget {
           children: [
             const SizedBox(height: 50),
             const CustomAppBar(
-              title: 'Sign In',
+              title: 'Welcome Back!',
               canBack: false,
             ),
             const SizedBox(height: 50),
@@ -31,7 +31,7 @@ class SignInViewbody extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                   const  SignInBlocConsumer(),
+                    const SignInBlocConsumer(),
                     const SizedBox(
                       height: 10,
                     ),
@@ -71,4 +71,3 @@ class SignInViewbody extends StatelessWidget {
     );
   }
 }
-

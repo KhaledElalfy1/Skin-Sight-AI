@@ -19,9 +19,7 @@ class SkinSightAI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      initialRoute: Routing.profile,
-
+      initialRoute: Routing.splash,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: GoogleFonts.nunitoSans().fontFamily,
