@@ -6,7 +6,9 @@ import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo.dart';
 import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo_impl.dart';
 import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo.dart';
 import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo_impl.dart';
+import 'package:skin_sight_ai/features/profile/data/repo/user_profile_repo.dart';
 
+import '../../features/profile/data/repo/user_profile_repo_impl.dart';
 import '../database/api/dio_consumer.dart';
 
 final getIt = GetIt.instance;
@@ -29,5 +31,9 @@ void setup() {
   );
   getIt.registerLazySingleton<SignInRepo>(
     () => SignInRepoImpl(apiConsumer: getIt<ApiConsumer>()),
+  );
+
+  getIt.registerLazySingleton<UserProfileRepo>(
+    () => UserProfileRepoImpl(apiConsumer: getIt<ApiConsumer>()),
   );
 }
