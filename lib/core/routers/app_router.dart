@@ -14,6 +14,7 @@ import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/h
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
 import 'package:skin_sight_ai/features/home/presentation/view/home_view.dart';
+import 'package:skin_sight_ai/features/main/presentation/view/main_view.dart';
 
 import 'package:skin_sight_ai/features/onBoarding/presentation/view/onBoarding_view.dart';
 import 'package:skin_sight_ai/features/profile/data/repo/user_profile_repo.dart';
@@ -40,8 +41,8 @@ class AppRouter {
           create: (context) => SignUpCubit(getIt<SignUpRepo>()),
           child: const SignUpView(),
         ));
-      case Routing.otp:
-        return _buildRoute(const Scaffold());
+      case Routing.main:
+        return _buildRoute(const MainView());
       case Routing.home:
         return _buildRoute(BlocProvider(
           create: (context) => HomeCubit(getIt<HomeRepo>()),

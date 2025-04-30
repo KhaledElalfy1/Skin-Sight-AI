@@ -48,7 +48,7 @@ class _SplashViewState extends State<SplashView> {
               ),
               const SizedBox(height: 19),
               Text(
-                'Skin Care',
+                'Skin Sight',
                 style: AppStyles.semiBold25(context)
                     .copyWith(fontWeight: FontWeight.w700, color: Colors.white),
               )
@@ -65,7 +65,7 @@ class _SplashViewState extends State<SplashView> {
         getIt<CacheHelper>().getBool(key: CacheKeys.isFirstTime) ?? true;
     if (mounted) {
       if (token != null) {
-        context.pushReplacementNamed(Routing.home);
+        context.pushReplacementNamed(Routing.main);
       }
      else if (!isFirstTime) {
         context.pushReplacementNamed(Routing.signIn);
