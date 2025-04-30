@@ -3,5 +3,6 @@ abstract class CacheKeys {
   static const String currentLanguage = 'currentLanguage';
   static const String token = "token";
   static const String id = "id";
+  static const String email = "email";
   static const String theme = "theme";
 }
