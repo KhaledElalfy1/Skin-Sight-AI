@@ -31,6 +31,7 @@ class ProfileView extends StatelessWidget {
                     UserDetail(
                       userEmail: userProfile.email,
                       userName: userProfile.name,
+                      gender: userProfile.gender
                     ),
                     const SizedBox(height: 20),
                     const Padding(

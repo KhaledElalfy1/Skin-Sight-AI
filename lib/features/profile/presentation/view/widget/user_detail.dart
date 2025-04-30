@@ -4,8 +4,9 @@ import '../../../../../core/utils/app_images.dart';
 
 class UserDetail extends StatelessWidget {
   const UserDetail(
-      {super.key, required this.userEmail, required this.userName});
+      {super.key, required this.userEmail, required this.userName, required this.gender});
   final String userEmail;
+  final String gender;
   final String userName;
 
   @override
@@ -25,10 +26,11 @@ class UserDetail extends StatelessWidget {
             Container(
               width: 100,
               height: 100,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    AppImages.maleImg,
+                    gender == 'Female'?
+                    AppImages.femaleImg:AppImages.maleImg
                   ),
                   fit: BoxFit.cover,
                 ),
