@@ -2,6 +2,8 @@ class EndPoints {
   static String baseUrl = 'https://skin-sight.runasp.net';
   static String register = '/api/auth/register';
   static String login = '/api/auth/login';
+  static String sendEmail = '/api/email';
+  static String addTest = '/api/history';
   static String profile = '/api/Profile';
 }
 

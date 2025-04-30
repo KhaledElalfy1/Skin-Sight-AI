@@ -9,6 +9,7 @@ import 'package:skin_sight_ai/features/auth/data/repos/sign_in_repo.dart';
 import 'package:skin_sight_ai/features/auth/data/repos/sign_up_repo.dart';
 import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_in_cubit/sign_in_cubit.dart';
 import 'package:skin_sight_ai/features/auth/presentation/view_models/sign_up_cubit/sign_up_cubit.dart';
+import 'package:skin_sight_ai/features/home/data/repo/home_repo.dart';
 import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/home_cubit.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_in_view.dart';
 import 'package:skin_sight_ai/features/auth/presentation/views/sign_up_view.dart';
@@ -23,7 +24,7 @@ import 'package:skin_sight_ai/features/splash/presentation/view/splash_view.dart
 
 class AppRouter {
   static Route? generateRoute(RouteSettings routeSettings) {
-    final args = routeSettings.arguments;
+
     switch (routeSettings.name) {
       case Routing.splash:
         return _buildRoute(const SplashView());
@@ -43,7 +44,7 @@ class AppRouter {
         return _buildRoute(const Scaffold());
       case Routing.home:
         return _buildRoute(BlocProvider(
-          create: (context) => HomeCubit(),
+          create: (context) => HomeCubit(getIt<HomeRepo>()),
           child: const HomeView(),
         ));
       case Routing.profile:

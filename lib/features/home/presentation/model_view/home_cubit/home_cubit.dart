@@ -1,10 +1,42 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skin_sight_ai/core/database/api/api_error_model.dart';
+import 'package:skin_sight_ai/features/home/data/repo/home_repo.dart';
 import 'package:skin_sight_ai/features/home/presentation/model_view/home_cubit/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeInitial());
+  HomeCubit(this.homeRepo) : super(HomeInitial());
+  final HomeRepo homeRepo;
   XFile? pickedImage;
+  void diagnosisStateEmitter() async {
+    emit(CallAIModelLoading());
+    final result = await homeRepo.diagnoseCase(pickedImage!);
+    result.fold(
+      (apiErrorModel) {
+        emit(
+          CallAIModelFailure(apiErrorModel: apiErrorModel),
+        );
+      },
+      (diagnosis) async {
+        final addTestResult = await homeRepo.addTest(diagnosis.first);
+        final sendEmailResult = await homeRepo.sendEmail(diagnosis.first);
+       
+        if (addTestResult.isRight() && sendEmailResult.isRight()) {
+          emit(CallAIModelSuccess(diagnosis: diagnosis));
+        } else {
+          emit(
+            CallAIModelFailure(
+              apiErrorModel: ApiErrorModel(
+                message: 'Failed to add test or send email',
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+
+
 
   void cancelImage() {
     pickedImage = null;
