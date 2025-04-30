@@ -19,7 +19,7 @@ class SignInBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpSuccess) {
           context.pushNamedAndRemoveUntil(
-            Routing.home,
+            Routing.main,
             predicate: (route) => false,
           );
         } else if (state is SignUpFailure) {

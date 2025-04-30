@@ -26,11 +26,13 @@ class UserDetail extends StatelessWidget {
               width: 100,
               height: 100,
               decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        AppImages.femaleImg,
-                      ),
-                      fit: BoxFit.cover)),
+                image: DecorationImage(
+                  image: AssetImage(
+                    AppImages.maleImg,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             const SizedBox(height: 10),
             Text(

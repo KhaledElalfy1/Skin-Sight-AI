@@ -13,5 +13,6 @@ class AppImages {
   static const String gallery = 'assets/images/gallery.png';
 
   static const String femaleImg = 'assets/images/femaleImg.png';
+  static const String maleImg = 'assets/images/male.png';
 
 }
