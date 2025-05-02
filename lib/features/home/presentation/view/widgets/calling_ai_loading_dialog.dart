@@ -15,7 +15,7 @@ class CallingAILoadingDialog extends StatelessWidget {
     return Dialog(
       
       child: Container(
-        height: 400,
+        height: 420,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(25),
