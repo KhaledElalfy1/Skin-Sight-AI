@@ -49,6 +49,7 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.3
   flutter_test:
     sdk: flutter
 
@@ -87,3 +88,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_launcher_icons:
+  image_path: "assets/images/app_icon.png"
+  adaptive_icon_background: "#ffffff"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  min_sdk_android: 21 # android min sdk min:16, default 21
